@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">查天氣</string>
+    <string name="search">地點搜尋</string>
+    <string name="today">今日天氣</string>
+    <string name="collection">我的最愛</string>
+    <string name="history">歷史紀錄</string>
+    <string name="setting">選項設定</string>
+    <string name="about">關於這個</string>
+    <string name="search_hint">請輸入地區名稱</string>
+    <string name="time">時間</string>
+    <string name="temperature">溫度</string>
+    <string name="status">狀態</string>
+    <string name="rainfall">累積降雨</string>
+
+    <string name="target_name">目標名稱:</string>
+    <string name="target_address">目標地址:</string>
+    <string name="target_coordinate">目標座標:</string>
+    <string name="relative_humidity">相對溼度:</string>
+    <string name="rainfall_in_one_day">今日累積雨量:</string>
+    <string name="rainfall_in_one_hour">一小時累積雨量:</string>
+    <string name="rain_chance">降雨機率</string>
+</resources>

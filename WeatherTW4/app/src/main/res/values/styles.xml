@@ -1,0 +1,87 @@
+<resources>
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="RaisedButtonOrigin" parent="Theme.AppCompat.Light">
+        <item name="android:textSize">25dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="RaisedButtonInfo" parent="Theme.AppCompat.Light">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+
+    <style name="RaisedButton1" parent="RaisedButtonOrigin">
+        <item name="colorControlHighlight">@color/purple</item>
+        <item name="colorButtonNormal">@color/blue</item>
+    </style>
+
+    <style name="RaisedButton2" parent="RaisedButtonOrigin">
+        <item name="colorControlHighlight">@color/green</item>
+        <item name="colorButtonNormal">@color/purple</item>
+    </style>
+
+    <style name="RaisedButton3" parent="RaisedButtonOrigin">
+        <item name="colorControlHighlight">@color/orange</item>
+        <item name="colorButtonNormal">@color/green</item>
+    </style>
+
+    <style name="RaisedButton4" parent="RaisedButtonOrigin">
+        <item name="colorControlHighlight">@color/red</item>
+        <item name="colorButtonNormal">@color/orange</item>
+    </style>
+
+    <style name="RaisedButton5" parent="RaisedButtonOrigin">
+        <item name="colorControlHighlight">@color/darkblue</item>
+        <item name="colorButtonNormal">@color/red</item>
+    </style>
+
+    <style name="RaisedButton6" parent="RaisedButtonOrigin">
+        <item name="colorControlHighlight">@color/darkpurple</item>
+        <item name="colorButtonNormal">@color/darkblue</item>
+
+    </style>
+
+
+    <style name="RaisedButtonPast" parent="RaisedButtonInfo">
+        <item name="colorControlHighlight">@color/purple</item>
+        <item name="colorButtonNormal">@color/blue</item>
+    </style>
+
+    <style name="RaisedButtonFuture" parent="RaisedButtonInfo">
+        <item name="colorControlHighlight">@color/green</item>
+        <item name="colorButtonNormal">@color/purple</item>
+    </style>
+
+    <style name="RaisedButtonTarget" parent="RaisedButtonInfo">
+        <item name="colorControlHighlight">@color/orange</item>
+        <item name="colorButtonNormal">@color/green</item>
+    </style>
+
+    <style name="RaisedButtonDebug" parent="RaisedButtonInfo">
+        <item name="colorControlHighlight">@color/red</item>
+        <item name="colorButtonNormal">@color/orange</item>
+    </style>
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+</resources>

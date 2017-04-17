@@ -1,0 +1,162 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="randy_chen.weathertw4.SearchActivity">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.SearchView
+                android:id="@+id/location_search_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:iconifiedByDefault="true"
+                android:showAsAction="always"></android.support.v7.widget.SearchView>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/pass_button_note"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="6"
+                    android:text="紀錄"
+                    android:theme="@style/RaisedButtonPast" />
+
+                <Button
+                    android:id="@+id/pass_button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/sunny"
+                    android:gravity="left|center_vertical"
+                    android:theme="@style/RaisedButtonPast" />
+
+            </LinearLayout>
+
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/future_button_note"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="6"
+                    android:text="預測"
+                    android:theme="@style/RaisedButtonFuture" />
+
+                <Button
+                    android:gravity="left|center_vertical"
+
+                    android:id="@+id/future_button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/rainy"
+                    android:text="Hi&#10;Hello&#10;Hello gaga"
+                    android:theme="@style/RaisedButtonFuture" />
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/target_button_note"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="6"
+                    android:text="資訊"
+                    android:theme="@style/RaisedButtonTarget" />
+
+                <Button
+                    android:gravity="left|center_vertical"
+                    android:id="@+id/target_button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/icon_target"
+                    android:text="Hi&#10;Hello&#10;Hello gaga"
+                    android:theme="@style/RaisedButtonTarget" />
+
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/debug_past_site_button_note"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="6"
+                    android:text="除錯"
+                    android:theme="@style/RaisedButtonDebug" />
+
+                <Button
+                    android:gravity="left|center_vertical"
+
+                    android:id="@+id/debug_past_site_button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/icon_info"
+                    android:padding="16dp"
+                    android:text="Hi&#10;Hello&#10;Hello gaga"
+                    android:theme="@style/RaisedButtonDebug" />
+
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/debug_future_site_button_note"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="6"
+                    android:text="除錯"
+                    android:theme="@style/RaisedButtonDebug" />
+
+                <Button
+                    android:gravity="left|center_vertical"
+
+                    android:id="@+id/debug_future_site_button"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/icon_info"
+                    android:padding="16dp"
+                    android:text="Hi&#10;Hello&#10;Hello gaga"
+                    android:theme="@style/RaisedButtonDebug" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">WeatherTW4</string>
+    <string name="search">Search</string>
+    <string name="today">Today</string>
+    <string name="collection">Collection</string>
+    <string name="history">History</string>
+    <string name="setting">Setting</string>
+    <string name="about">About</string>
+    <string name="title_activity_search">SearchActivity</string>
+    <string name="search_hint">enter the location name</string>
+    <string name="time">Time</string>
+    <string name="temperature">Temperature</string>
+    <string name="status">Status</string>
+    <string name="rainfall">Rainfall</string>
+
+    <string name="target_name">Target Name:</string>
+    <string name="target_address">Target Address:</string>
+    <string name="target_coordinate">Target Coordinate:</string>
+    <string name="relative_humidity">Relative humidity:</string>
+    <string name="rainfall_in_one_day">Rainfall in one day:</string>
+    <string name="rainfall_in_one_hour">Rainfall in one hour:</string>
+    <string name="rain_chance">Rain Chance</string>
+</resources>
