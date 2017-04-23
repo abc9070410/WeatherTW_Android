@@ -43,6 +43,56 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button todayButton = (Button)findViewById(R.id.button_today);
+        todayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this  , TodayActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button historyButton = (Button)findViewById(R.id.button_history);
+        historyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this  , HistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button collectionButton = (Button)findViewById(R.id.button_collection);
+        collectionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this  , CollectionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button optionButton = (Button)findViewById(R.id.button_option);
+        optionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this  , OptionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button aboutButton = (Button)findViewById(R.id.button_about);
+        aboutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this  , AboutActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void test()
@@ -65,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         sUrl = GovData.getStationWeatherUrl(GovData.TYPE_PAST_24HR_STATION, iStationIndex);
 
         Common.DP("URL:" + sUrl);
-        new DownloadAndParse(MainActivity.this, Common.MAIN_ACTIVITY).execute(sUrl, Common.PAST_24HR_DATA);
+        new DownloadAndParse(MainActivity.this, Common.MAIN_ACTIVITY).execute(sUrl, Common.DATA_PAST_24HR);
         //sText = doHttpUrlConnectionAction(sUrl);
         //Common.DP(sText);
         //GovData.parsePastRain(sText);
@@ -74,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         iStationIndex = Common.getNearLocationIndex(GovData.TYPE_FUTURE_STATION, fLat, fLon);
         sUrl = GovData.getStationWeatherUrl(GovData.TYPE_FUTURE_STATION, iStationIndex);
         Common.DP("URL:" + sUrl);
-        new DownloadAndParse(MainActivity.this, Common.MAIN_ACTIVITY).execute(sUrl, Common.FUTURE_DATA);
+        new DownloadAndParse(MainActivity.this, Common.MAIN_ACTIVITY).execute(sUrl, Common.DATA_FUTURE);
         //sText = doHttpUrlConnectionAction(sUrl);
         //Common.DP(sText);
         //GovData.parseFutureRain(sText);

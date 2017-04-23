@@ -1,5 +1,6 @@
 package randy_chen.weathertw4;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.util.Log;
 
@@ -18,19 +19,29 @@ public class Common {
     public static int MAIN_ACTIVITY = 1;
     public static int SEARCH_ACTIVITY = 2;
     public static int PASTINFO_ACTIVITY = 3;
+    public static int FEATURE_ACTIVITY = 4;
+    public static int TODAY_ACTIVITY = 5;
+    public static int OPTION_ACTIVITY = 6;
+    public static int HISTORY_ACTIVITY = 7;
+    public static int COLLECTION_ACTIVITY = 8;
 
 
-    public static String FUTURE_DATA = "1";
-    public static String PAST_DATA = "2";
-    public static String PAST_24HR_DATA = "3";
-    public static String PAST_RAIN_DATA = "4";
-    public static String GOOGLEAPIS_JSON = "5";
+    public static String DATA_FUTURE = "1";
+    public static String DATA_PAST = "2";
+    public static String DATA_PAST_24HR = "3";
+    public static String DATA_PAST_RAIN = "4";
+    public static String DATA_GOOGLEAPIS_JSON = "5";
+    public static String DATA_TODAY = "6";
+    public static String DATA_HISTORY = "7";
+    public static String DATA_COLLECTION = "8";
 
     private static String gsDistance;
     private static String[] gasStationGPS;
 
     public static String[][] futureData;
     public static String[][] pastData;
+    public static String[][] todayData;
+    public static String[][] historyData;
 
     public static String getGmapSearchLatLngUrl(String location)
     {

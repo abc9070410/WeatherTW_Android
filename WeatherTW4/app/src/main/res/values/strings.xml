@@ -20,4 +20,7 @@
     <string name="rainfall_in_one_day">Rainfall in one day:</string>
     <string name="rainfall_in_one_hour">Rainfall in one hour:</string>
     <string name="rain_chance">Rain Chance</string>
+
+    <string name="area">Area</string>
+    <string name="location">Location</string>
 </resources>

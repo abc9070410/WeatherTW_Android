@@ -2,6 +2,7 @@ package randy_chen.weathertw4;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -188,9 +189,13 @@ public class SearchActivity extends AppCompatActivity {
         String sUrl = Common.getGmapSearchLatLngUrl(query);
         Common.DP("URL:" + sUrl);
 
-        new DownloadAndParse(SearchActivity.this, Common.SEARCH_ACTIVITY).execute(sUrl, Common.GOOGLEAPIS_JSON);
+        new DownloadAndParse(SearchActivity.this, Common.SEARCH_ACTIVITY).execute(sUrl, Common.DATA_GOOGLEAPIS_JSON);
 
 
+        SharedPreferences sharedPreferences = getSharedPreferences("data" , MODE_PRIVATE);
+
+        //sharedPreferences.edit().putInt("score" , 100).apply();
+        //sharedPreferences.getInt("score" , 0);
     }
 
     private void setSearchView() {

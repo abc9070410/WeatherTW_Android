@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
  */
 public class GovData {
 
+    // 2017.4.21 : global TW weather predition : http://www.cwb.gov.tw/V7/forecast/f_index.htm
+
     public static int TYPE_PAST_STATION      = 1; // PAST_STATIONS
     public static int TYPE_PAST_24HR_STATION = 2; // PAST_24HR_STATIONS
     public static int TYPE_FUTURE_STATION    = 3; // FUTURE_STATIONS
@@ -412,6 +414,90 @@ public class GovData {
 
         return aasFutureRainData;
     }
+
+    public static String[][] parseToday(String sText)
+    {
+        DP("Parse Today Data");
+
+        String[] asTokens = sText.split("<tr ");
+
+        int iLength1 = asTokens.length - 1;
+        int iLength2 = 4;
+
+        // _AreaList
+
+        // iLength1: 有幾組紀錄 + 1 個欄位名稱
+        // iLength2: 區域 , 縣市名 , 溫度 , 降雨機率 , 天氣描述
+
+        String[][] aasTodayData = new String[iLength1][iLength2];
+
+        int begin = 0;
+        int end = 0;
+
+        String token;
+
+        for (int i = 0; i < iLength1; i++)
+        {
+            String sTrimRow = asTokens[i + 1].trim();
+            String[] asRow;
+            int j2 = 0;
+
+            asRow = sTrimRow.split("<td");
+
+            for (int j = 1; j < iLength2 + 1; j ++)
+            {
+                /*
+                if (j == 0)
+                {
+                    end = asRow[j].indexOf("</th>");
+                    begin = asRow[j].lastIndexOf(">", end) + 1;
+                    aasTodayData[i][j] = asRow[j].substring(begin, end).trim();
+
+                    continue;
+                }
+                */
+
+                begin = asRow[j].indexOf("title=");
+
+                if (begin > 0)
+                {
+                    begin = asRow[j].indexOf("\"", begin) + 1;
+                    end = asRow[j].indexOf("\"", begin);
+                }
+                else
+                {
+                    begin = asRow[j].indexOf("<a");
+                    begin = asRow[j].indexOf(">", begin) + 1;
+                    end = asRow[j].indexOf("<", begin);
+                }
+
+                //DP("row:[" + j + "," + asRow[j] + "] ");
+                //DP("begin:" +begin + " end:" + end);
+                token = asRow[j].substring(begin, end).trim();
+
+                token = token.replace("&#37;", "%");
+                token = token.replace("陰", "");
+                token = token.replace("時", "");
+                token = token.replace("暫", "");
+
+                aasTodayData[i][j - 1] = token;
+                //DP(j + ":" + asRow[j]);
+            }
+        }
+
+        for (int i = 0; i < aasTodayData.length; i ++)
+        {
+            for (int j = 0; j < aasTodayData[i].length; j++)
+            {
+                DP( i + "_" + j + " : " + aasTodayData[i][j]);
+            }
+        }
+
+        return aasTodayData;
+    }
+
+
+
 
     // Debug Print
     private static void DP(String str)

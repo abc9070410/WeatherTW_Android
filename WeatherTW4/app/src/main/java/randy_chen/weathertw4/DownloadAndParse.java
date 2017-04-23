@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -23,6 +24,9 @@ public class DownloadAndParse extends AsyncTask<String, String, String> {
     private AppCompatActivity activity;
     private MainActivity mainActivity;
     private SearchActivity searchActivity;
+    private TodayActivity todayActivity;
+    private HistoryActivity historyActivity;
+    private CollectionActivity collectionActivity;
 
     private String targetAddress = "";
     private double targetLat = 0;
@@ -51,6 +55,9 @@ public class DownloadAndParse extends AsyncTask<String, String, String> {
         }
         else if (activityIndex == Common.SEARCH_ACTIVITY) {
             this.searchActivity = (SearchActivity)activity;
+        }
+        else if (activityIndex == Common.TODAY_ACTIVITY) {
+            this.todayActivity = (TodayActivity)activity;
         }
 
     }
@@ -119,22 +126,31 @@ public class DownloadAndParse extends AsyncTask<String, String, String> {
 
     private void parseData(String sText, String sDataType)
     {
-        if (Common.PAST_24HR_DATA.equals(sDataType))
+        if (Common.DATA_PAST_24HR.equals(sDataType))
         {
             parsePast(sText);
         }
-        else if (Common.FUTURE_DATA.equals(sDataType))
+        else if (Common.DATA_FUTURE.equals(sDataType))
         {
             parseFuture(sText);
         }
-        else if (Common.GOOGLEAPIS_JSON.equals(sDataType))
+        else if (Common.DATA_GOOGLEAPIS_JSON.equals(sDataType))
         {
             parseGoogleapisJson(sText);
+        }
+        else if (Common.DATA_TODAY.equals(sDataType))
+        {
+            parseToday(sText);
         }
     }
 
     private void parsePast(String text)
     {
+        try {
+            text = new String(text.getBytes("BIG5"),"UTF8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         Common.pastData = GovData.parsePastRain(text);
         searchActivity.runOnUiThread(new Runnable() {
             @Override
@@ -166,6 +182,16 @@ public class DownloadAndParse extends AsyncTask<String, String, String> {
         });
     }
 
+    private void parseToday(String text)
+    {
+        Common.todayData = GovData.parseToday(text);
+        todayActivity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                todayActivity.updateTodayButton();
+            }
+        });
+    }
 
 
     public void parseGoogleapisJson(String text)
@@ -198,7 +224,7 @@ public class DownloadAndParse extends AsyncTask<String, String, String> {
             url = GovData.getStationWeatherUrl(stationType, stationIndex);
             pastStationAddress = GovData.getStationInfo(stationType, stationIndex, GovData.STATION_LOCATION);
             pastStationName = GovData.getStationInfo(stationType, stationIndex, GovData.STATION_NAME);
-            new DownloadAndParse(searchActivity, Common.SEARCH_ACTIVITY).execute(url, Common.PAST_24HR_DATA);
+            new DownloadAndParse(searchActivity, Common.SEARCH_ACTIVITY).execute(url, Common.DATA_PAST_24HR);
 
 
             stationType = GovData.TYPE_FUTURE_STATION;
@@ -206,7 +232,7 @@ public class DownloadAndParse extends AsyncTask<String, String, String> {
             url = GovData.getStationWeatherUrl(stationType, stationIndex);
             futureStationAddress = GovData.getStationInfo(stationType, stationIndex, GovData.STATION_LOCATION);
             futureStationName = GovData.getStationInfo(stationType, stationIndex, GovData.STATION_NAME);
-            new DownloadAndParse(searchActivity, Common.SEARCH_ACTIVITY).execute(url, Common.FUTURE_DATA);
+            new DownloadAndParse(searchActivity, Common.SEARCH_ACTIVITY).execute(url, Common.DATA_FUTURE);
 
             searchActivity.runOnUiThread(new Runnable() {
                 @Override
