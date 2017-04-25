@@ -20,6 +20,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -191,11 +193,36 @@ public class SearchActivity extends AppCompatActivity {
 
         new DownloadAndParse(SearchActivity.this, Common.SEARCH_ACTIVITY).execute(sUrl, Common.DATA_GOOGLEAPIS_JSON);
 
+        saveHistory(query);
+    }
 
+    private void saveHistory(String location)
+    {
         SharedPreferences sharedPreferences = getSharedPreferences("data" , MODE_PRIVATE);
+        String history = sharedPreferences.getString(Common.KEY_HISTORY_SEARCH, null);
 
-        //sharedPreferences.edit().putInt("score" , 100).apply();
-        //sharedPreferences.getInt("score" , 0);
+        if (history != null)
+        {
+            history += Common.SPLIT_EXTERNAL_TOKEN;
+        }
+        else
+        {
+            history = "";
+        }
+        history += getCurrentTime() + Common.SPLIT_INTERNAL_TOKEN + location;
+
+        sharedPreferences.edit().putString("KEY_HISTORY_SEARCH" , history).apply();
+
+        Common.DP("All history:" + history);
+    }
+
+    private String getCurrentTime()
+    {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
+        Date curDate = new Date(System.currentTimeMillis()) ; // 獲取當前時間
+
+        return formatter.format(curDate);
     }
 
     private void setSearchView() {

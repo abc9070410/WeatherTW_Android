@@ -23,6 +23,6 @@
     <string name="rain_chance">降雨機率</string>
 
     <string name="area">區域</string>
-    <string name="location">縣市</string>
-
+    <string name="location">地區</string>
+    <string name="search_timestamp">搜尋時間</string>
 </resources>

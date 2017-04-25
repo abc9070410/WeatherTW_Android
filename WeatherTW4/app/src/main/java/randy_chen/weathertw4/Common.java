@@ -35,6 +35,11 @@ public class Common {
     public static String DATA_HISTORY = "7";
     public static String DATA_COLLECTION = "8";
 
+    public static String SPLIT_INTERNAL_TOKEN = "_";
+    public static String SPLIT_EXTERNAL_TOKEN = "#";
+
+    public static String KEY_HISTORY_SEARCH = "KEY_HISTORY_SEARCH";
+
     private static String gsDistance;
     private static String[] gasStationGPS;
 
